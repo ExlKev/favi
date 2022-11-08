@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/addons/p5.sound.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="index.js"></script>
+<script>
+  var tabName = localStorage.getItem('tabname');
+  document.title = (tabName)
+</script>
+</head>
+<body>
+
+<nav id="buildTopnav">
+
+</nav>
+  <script>
+$(function(){
+  $("#buildTopnav").load("../navbar.html");
+});
+</script>
+  <script>
+        var scrPass;
+function setup(){
+ scrPass = getItem('pass');
+ //hi source code viewer
+}
+function draw(){
+  if(scrPass == "wrong"){
+    //window.open("/password")
+  }
+    if (scrPass === null) {
+     scrPass = "wrong";
+   }
+}
+      </script>
+<div id="setting">
+  <form placeholder="Change Tab Title..." onsubmit="buttonCode();">
+    <input type="text" value="" id="nameChange"</input>
+    <input type="button" value="Name Tab" onclick="buttonCode();" id="submitButton"</input>
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Password</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/addons/p5.sound.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+    <link rel="stylesheet" type="text/css" href="style2.css">
+    <meta charset="utf-8" />
+
+  </head>
+  <body>
+    <main>
+    </main>
+    <script>
+      var keys = ["test3","2jf8H28hdhuLEWIS289jsnJ2j","wg872hudwufJulian2hduio","27hdu3NathAn2hdu92","2789398hsJack29hdfhin"]
+      var ip;
+      var ref;
+      var i = 0;
+      var test;
+      var used = false;
+      var text1 = "Incorrect"
+      var textX = 570;
+function setup() {
+    fetch('https://api.ipify.org/?format=json')
+   .then(results => results.json())
+   .then(data => ip = data.ip);
+  createCanvas(windowWidth,windowHeight);
+  input1 = createInput().position(500,400);
+  var config = { 
+    apiKey: "AIzaSyBN4WTSvYUHz0akgBp9a5A7gACMmCHV7yU",
+    authDomain: "misc-data-78ad7.firebaseapp.com",
+    databaseURL: "https://misc-data-78ad7-default-rtdb.firebaseio.com",
+    storageBucket: "misc-data-78ad7.appspot.com",
+    dagingSenderId: "428207442718",
+  };
+  firebase.initializeApp(config);
+  database = firebase.database();
+}
+function draw(){
+  //for(var i = keys.length; i >= 0; i++){
+    // print(i);
+  //}
+  i++;
+  if(i>=keys.length){
+    i=0;
+  }
+  test = input1.value();
+  background(38,38,38);
+  fill("white");
+  textSize(15);
+  text("Enter the Password",540,360);
+  textSize(15);
+ // text("If you need a key contact me",455,225)
+  textSize(30);
+  text("Password To Site Needed",450,200);
+  if(input1.value() == keys[i] && used == false){
+    storeItem('pass',keys[i]);
+    textSize(20);
+    text1 = "Access Granted, You Can Now Return To The Original Site And Reload"
+    ref = database.ref("keys");
+    data1 = {status:"used!",user_ip:ip,time_used:hour()+":"+minute()+":"+second(),key_id:test};
+    if(used == false){
+    ref.push(data1);
+    }  
+    used = true;
+    textX = 320; 
+  } 
+  textSize(20);
+  text(text1,textX,500);
+}
+  </script>
+  </body>
+</html>
