@@ -10,7 +10,7 @@ You can run this on replit.
 # Running on your own machine
 
 ```
-git clone https://github.com/DazaSeal/Lunanom/
+git clone https://github.com/mivu/deka/
 cd Lunanom
 git submodule update --init
 npm install
@@ -18,4 +18,4 @@ npm start
 ```
 # Frontend by DazaSeal
 		      
-# Backend by <a href="https://github.com/titaniumnetwork-dev">Titanium Network</a> and Abnumality
+# Backend by <a href="https://github.com/titaniumnetwork-dev">Titanium Network</a> and mivu
